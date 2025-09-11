@@ -1,0 +1,12 @@
+<h1>Add a New Book</h1>
+
+<%= form_with(model: @book, local: true) do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p><%= form.submit "Create Book" %></p>
+<% end %>
+
+<%= link_to "Back to Home", books_path %>
+
