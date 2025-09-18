@@ -52,4 +52,10 @@ RSpec.describe "Book creation validations", type: :system do
     click_button "Create Book"
     expect(page).to have_text("Published date can't be blank").or have_text("Error creating book")
   end
+  
+  it "visits the new book page successfully" do
+    visit new_book_path
+    expect(page).to have_content("New Book")
+  end
+
 end
