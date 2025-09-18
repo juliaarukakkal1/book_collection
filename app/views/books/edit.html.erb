@@ -1,13 +1,40 @@
 <h1>Edit Book</h1>
 
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+<% if flash[:alert] %>
+  <p class="alert"><%= flash[:alert] %></p>
+<% end %>
+
 <%= form_with(model: @book, local: true) do |form| %>
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
   </p>
-  <p><%= form.submit "Update Book" %></p>
+
+  <p>
+    <%= form.label :author %><br>
+    <%= form.text_field :author %>
+  </p>
+
+  <p>
+    <%= form.label :price %><br>
+    <%= form.number_field :price, step: 0.01 %>
+  </p>
+
+  <p>
+    <%= form.label :published_date %><br>
+    <%= form.date_select :published_date, start_year: 1900, end_year: Date.today.year, prompt: true %>
+  </p>
+
+  <p>
+    <%= form.submit "Update Book" %>
+  </p>
 <% end %>
 
-<%= link_to "Back to Home", books_path %>
+<%= link_to "Back to Home", books_path %> |
+<%= link_to "Show Books", @book %>
+
 
 
