@@ -32,4 +32,3 @@ RSpec.describe Book, type: :model do
     expect(book).not_to be_valid
   end
 end
-
